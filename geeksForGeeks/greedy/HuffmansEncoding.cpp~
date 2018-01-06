@@ -1,0 +1,69 @@
+/*
+ * HuffmansEncoding.cpp
+ *
+ *  Created on: Nov 17, 2014
+ *      Author: Apratim
+ */
+
+#include<cstdio>
+#include<iostream>
+#include<queue>
+#include<stdlib.h>
+#include <functional>
+#include<string.h>
+using namespace std;
+
+struct myContainer {
+	char c;
+	int frequency;
+	struct myContainer *left;
+	struct myContainer *right;
+};
+
+class Comp {
+public:
+	bool operator()(myContainer *mc1, myContainer *mc2) {
+		return (mc1)->frequency > (mc2)->frequency;
+	}
+};
+
+priority_queue<myContainer, vector<myContainer > , Comp> pQ;
+
+/*myContainer *constructContainer(char *charArray, int *freqArray, int i) {
+ myContainer *mC = (myContainer*) malloc(sizeof(myContainer));
+ mC->c = charArray[i];
+ mC->frequency = freqArray[i];
+ mC->left = NULL;
+ mC->right = NULL;
+ return mC;
+ }*/
+
+//void printQueue(priority_queue<myContainer*> pQ) {
+//
+//	while (pQ.size() > 0) {
+//		myContainer *mC = pQ.pop();
+//		cout << mC->frequency << "\n";
+//	}
+
+//}
+
+/*void HuffmanCodes(char *charArray, int *freqArray, int size) {
+
+ myContainer * mC;
+
+ for (int i = 0; i < size; i++) {
+ mC = constructContainer(charArray, freqArray, i);
+ pQ.push(mC);
+ }
+
+ //printQueue(pQ);
+ }*/
+
+// Driver program to test above functions
+int main() {
+	char arr[] = { 'a', 'b', 'c', 'd', 'e', 'f' };
+	int freq[] = { 5, 9, 12, 13, 16, 45 };
+	int size = sizeof(arr) / sizeof(arr[0]);
+	//HuffmanCodes(arr, freq, size);
+	return 0;
+}
